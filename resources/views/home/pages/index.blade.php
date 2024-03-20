@@ -246,40 +246,40 @@
     <!-- End Portfolio Section -->
     <!-- ======= Testimonials Section ======= -->
 
-    @if($ratings!=[])
-        <section id="testimonials" class="testimonials section-bg">
-            <div class="container" data-aos="fade-up">
-                <div class="section-title">
-                    <h2>Testimonials</h2>
-                </div>
+{{--    @if($ratings!=[])--}}
+{{--        <section id="testimonials" class="testimonials section-bg">--}}
+{{--            <div class="container" data-aos="fade-up">--}}
+{{--                <div class="section-title">--}}
+{{--                    <h2>Testimonials</h2>--}}
+{{--                </div>--}}
 
-                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper">
+{{--                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">--}}
+{{--                    <div class="swiper-wrapper">--}}
 
-                        @foreach ($ratings as $item)
+{{--                        @foreach ($ratings as $item)--}}
 
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <img src="{{ asset($item->image) }}"
-                                         class="testimonial-img" alt=""/>
-                                    <h3>{{$item->name}}</h3>
-                                    <h4>{{$item->organization}}</h4>
-                                    <p>
-                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                        {{$item->text}}
-                                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                    </p>
-                                </div>
-                            </div>
-                        @endforeach
-                           <!-- End testimonial item -->
+{{--                            <div class="swiper-slide">--}}
+{{--                                <div class="testimonial-item">--}}
+{{--                                    <img src="{{ asset($item->image) }}"--}}
+{{--                                         class="testimonial-img" alt=""/>--}}
+{{--                                    <h3>{{$item->name}}</h3>--}}
+{{--                                    <h4>{{$item->organization}}</h4>--}}
+{{--                                    <p>--}}
+{{--                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>--}}
+{{--                                        {{$item->text}}--}}
+{{--                                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>--}}
+{{--                                    </p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
+{{--                           <!-- End testimonial item -->--}}
 
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </section>
-    @endif
+{{--                    </div>--}}
+{{--                    <div class="swiper-pagination"></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
+{{--    @endif--}}
     <!-- End Testimonials Section -->
 
         <!-- ======= Contact Section ======= -->
