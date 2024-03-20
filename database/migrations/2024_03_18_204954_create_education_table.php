@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('institution');
             $table->string('location');
-            $table->string('description');
+            $table->text('description');
             $table->string('date');
             $table->timestamps();
         });
