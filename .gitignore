@@ -7,13 +7,7 @@
 /public_html/Recommend
 /public_html/Technologies
 /public_html/Contacts
-/public/build
-/public/hot
-/public/storage
-/public/Projects
-/public/Recommend
-/public/Technologies
-/public/Contacts
+/public
 /storage/*.key
 /vendor
 .env
