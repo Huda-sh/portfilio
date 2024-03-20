@@ -246,7 +246,7 @@
     <!-- End Portfolio Section -->
     <!-- ======= Testimonials Section ======= -->
 
-    @if($ratings)
+    @if($ratings!=[])
         <section id="testimonials" class="testimonials section-bg">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
