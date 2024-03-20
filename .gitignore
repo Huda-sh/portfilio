@@ -1,5 +1,12 @@
 /.phpunit.cache
 /node_modules
+/public_html/build
+/public_html/hot
+/public_html/storage
+/public_html/Projects
+/public_html/Recommend
+/public_html/Technologies
+/public_html/Contacts
 /public/build
 /public/hot
 /public/storage
