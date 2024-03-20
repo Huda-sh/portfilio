@@ -34,6 +34,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css'>
+    <x-embed-styles />
     <!-- =======================================================
   * Template Name: MyResume
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
@@ -83,10 +84,14 @@
         <div class="demo-container">
             <div class="details">
                 <div class="description">
-                    {{ $project->description }}</div>
+                    <?php echo $project->description ?></div>
+                <h2 class="h3 my-3">Technologies used</h2>
                 <div class="tag">
                     @foreach ($project->technologies as $item)
-                        <div class="tag-item">{{ $item->name }}</div>
+                        <div class="div-card">
+                            <div class="div-card-item" style="background-image: url('{{ asset($item->logo) }}')"></div>
+                            <span>{{ $item->name }}</span>
+                        </div>
                     @endforeach
                 </div>
                 @if ($project->web_link)

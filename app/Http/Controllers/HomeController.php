@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Project;
 use App\Models\Recommendation;
 use App\Models\Technology;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,13 +29,17 @@ class HomeController extends Controller
         $ratings = Recommendation::all();
         $experinces = Experience::all();
         $educations = Education::all();
+        $user = User::first();
+        $contacts = Contact::all();
         return view('home.pages.index', compact(
             'frameworks',
             'tools',
             'projects',
             'ratings',
             'experinces',
-            'educations'
+            'educations',
+            'user',
+            'contacts'
         ));
     }
 

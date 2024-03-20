@@ -108,36 +108,26 @@
 
 
   .title {
-    margin-top: 10%;
+    margin-top: 3%;
     margin-left: 7%;
-    margin-bottom: 50px;
     font-size: 48px;
     font-weight: 600;
     line-height: 68px;
     color: #1A1A1AFF;
 }
 
-.date {
-    margin-left: 7%;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 30px;
-    color: #594488FF;
-}
 
 /* Container 167 */
 .demo-container {
     margin-left: 7%;
+    margin-right: 7%;
     margin-bottom: 50px;
-    width: 1440px;
     background: #FFFFFFFF;
     border-radius: 0px;
-    display: flex;
-    flex-direction: row
 }
 .description {
     margin-top: 40px;
-    width: 500px;
+    /*width: 500px;*/
     /* height: 262px; */
     font-size: 18px;
     font-weight: 400;
@@ -145,7 +135,8 @@
     color: #4A4A4AFF;
 }
 .tag {
-    margin-top: 25px;
+    margin-top: 50px;
+    margin-bottom: 100px;
     width: fit-content;
     height: 28px;
     display: flex;
@@ -225,17 +216,11 @@ background: #2B2142FF;
     margin-top: 50px;
 }
 .video{
-    max-width: 100%;
-    flex-grow:1;
-    /* position: absolute;
-    top: 200px;
-    right: 200px; */
-}
-.details{
-    max-width: 45%;
-    flex-grow:1;
+    /*max-width: 70%;*/
+    margin-inline: auto;
 }
 
 .swiper-container{
     margin-bottom: 50px;
 }
+

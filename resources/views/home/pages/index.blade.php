@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>Huda Shakir</title>
+    <title>{{$user->name}}</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
 
@@ -80,25 +80,35 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex flex-column justify-content-center">
         <div class="container" data-aos="zoom-in" data-aos-delay="100">
-            <h1>Huda Shakir</h1>
+            <h1>Hello, I'm {{$user->name}}</h1>
             <p>
                 I'm a
                 <span class="typed"
                     data-typed-items="Backend Developer, Mobile Developer, Frontend Developer, Freelancer, Programming instructor"></span>
             </p>
             <p class="about" style="font-size: 18px">
-                A skilled and passionate Laravel Developer with experience in
-                developing web applications using the Laravel framework and PHP,
-                creating RESTful APIs, and integrating them with web and mobile
-                applications.
+                {{$user->about}}
             </p>
             <div class="social-links">
                 <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
-                <a href="https://www.facebook.com/hudashakir314" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="https://www.instagram.com/hudashakir14" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="https://www.github.com/Huda-sh" class="github"><i class="bx bxl-github"></i></a>
-                <a href="https://www.linkedin.com/in/hudashakir" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                @foreach($contacts as $item)
+                <a href="{{$item->text}}" class="{{$item->platform}}"><i class="bx bxl-{{$item->platform}}"></i></a>
+                @endforeach
             </div>
+            <a href="google.com" class="Download-button">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="16"
+                    width="20"
+                    viewBox="0 0 640 512"
+                >
+                    <path
+                        d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-167l80 80c9.4 9.4 24.6 9.4 33.9 0l80-80c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-39 39V184c0-13.3-10.7-24-24-24s-24 10.7-24 24V318.1l-39-39c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9z"
+                        fill="white"
+                    ></path>
+                </svg>
+                <span>Download CV</span>
+            </a>
         </div>
     </section>
     <!-- End Hero -->
@@ -180,8 +190,30 @@
                     <h2>Portfolio</h2>
                 </div>
 
-                <div class="projects grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="projects grid grid-cols-1 md:grid-cols-2 lg:md:grid-cols-3 gap-5">
                     @foreach ($projects as $item)
+                        <div class="card">
+                            <div class="header" style="  background-image: url('{{$item->files[0]->path}}'); background-size: cover;">
+                                <!-- <img src="./assets/home/img/profile-img.jpg" alt="" style="ob"> -->
+                            </div>
+                            <div class="info">
+                                <p class="title">{{ $item->name }}</p>
+                                <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+            molestiae quas vel sint commodi. </p> -->
+                                @foreach ($item->technologies as $tec)
+                                    <span class="stack-badge">{{$tec->name}}</span>
+                                @endforeach
+                            </div>
+                            <div class="footer">
+                                <!-- <p class="tag">#HTML #CSS </p> -->
+                                <a href="{{ route('project', ['id'=>$item->id]) }}" target="_blank" class="card-btn"
+                                    style="float: right; height: 2.35rem; color: #fff; background-color: #613bb1; padding: .375rem .75rem; border-radius: .25rem;"><i
+                                        class="fa-regular fas fa-external-link-alt"></i>View Project</a>
+                                <a href="{srcURL}" target="_blank" class="card-btn"
+                                    style="float: right; color: #fff; background-color: #613bb1; padding: .375rem .75rem; border-radius: .25rem;"><i
+                                        class="fa-solid fa-display"></i>View Demo</a>
+                            </div>
+                        </div>
                         <div class="card">
                             <div class="header" style="  background-image: url('{{$item->files[0]->path}}'); background-size: cover;">
                                 <!-- <img src="./assets/home/img/profile-img.jpg" alt="" style="ob"> -->
@@ -258,19 +290,19 @@
                             <div class="address">
                                 <i class="bi bi-geo-alt"></i>
                                 <h4>Location:</h4>
-                                <p>A108 Adam Street, New York, NY 535022</p>
+                                <p>{{$user->location}}</p>
                             </div>
 
                             <div class="email">
                                 <i class="bi bi-envelope"></i>
                                 <h4>Email:</h4>
-                                <p>info@example.com</p>
+                                <p>{{$user->email}}</p>
                             </div>
 
                             <div class="phone">
                                 <i class="bi bi-phone"></i>
                                 <h4>Call:</h4>
-                                <p>+1 5589 55488 55s</p>
+                                <p>{{$user->phone}}</p>
                             </div>
                         </div>
                     </div>
@@ -316,11 +348,11 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="container">
-            <h3>Brandon Johnson</h3>
+            <h3>{{$user->name}}</h3>
             <div class="social-links">
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                @foreach($contacts as $item)
+                    <a href="{{$item->text}}" class="{{$item->platform}}"><i class="bx bxl-{{$item->platform}}"></i></a>
+                @endforeach
             </div>
 
             <div class="credits">
