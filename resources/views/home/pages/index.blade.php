@@ -272,14 +272,15 @@
                                 </div>
                             </div>
                         @endforeach
-                        @endif       <!-- End testimonial item -->
+                           <!-- End testimonial item -->
 
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
-        <!-- End Testimonials Section -->
+    @endif
+    <!-- End Testimonials Section -->
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
