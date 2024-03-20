@@ -190,7 +190,7 @@
                 <h2>Portfolio</h2>
             </div>
 
-            <div class="projects grid grid-cols-1 md:grid-cols-2 lg:md:grid-cols-3 gap-5">
+            <div class="projects grid grid-cols-1 md:grid-cols-2 lg:md:grid-cols-3 gap-4">
                 @foreach ($projects as $item)
                     <div class="card">
                         <div class="header"
