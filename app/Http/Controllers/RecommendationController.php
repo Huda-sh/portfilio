@@ -26,7 +26,7 @@ class RecommendationController extends Controller
     {
         if ($request->hasFile('image')) {
             $imageName = $request->file('image')->getClientOriginalName();
-            $path = $request->file('image')->storeAs('Recommend', $imageName, 'custom');
+            $path = $request->file('image')->storeAs('Recommend', $imageName, 'local');
         }
         Recommendation::create([
             'name' => $request->name,
@@ -54,7 +54,7 @@ class RecommendationController extends Controller
         if($request->hasFile('image')){
             File::delete($recomm->image);
             $imageName = $request->file('image')->getClientOriginalName();
-            $path = $request->file('image')->storeAs('Recommend', $imageName, 'custom');
+            $path = $request->file('image')->storeAs('Recommend', $imageName, 'local');
         }
 
         $recomm->update([
