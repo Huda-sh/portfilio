@@ -32,7 +32,7 @@ class TechnologyController extends Controller
     {
         if($request->hasFile('logo')){
             $imageName = $request->file('logo')->getClientOriginalName();
-            $path = $request->file('logo')->storeAs('Technologies', $imageName, 'local');
+            $path = $request->file('logo')->storeAs('Technologies', $imageName, 'custom');
         }
 
          Technology::create([
