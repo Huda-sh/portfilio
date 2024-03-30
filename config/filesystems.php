@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'public'),
+    'default' => env('FILESYSTEM_DISK', 'custom'),
 
     /*
     |--------------------------------------------------------------------------
@@ -38,7 +38,7 @@ return [
 
         'custom' => [
             'driver' => 'local',
-            'root' => public_path(),
+            'root' => base_path('public_html'),
             'throw' => false,
         ],
 
