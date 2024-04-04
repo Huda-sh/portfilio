@@ -70,7 +70,9 @@ class RecommendationController extends Controller
 
     public function destroy(string $id)
     {
-        Recommendation::findOrFail($id)->delete();
+        $rec = Recommendation::findOrFail($id);
+        File::delete($rec->image);
+        $rec->delete();
         return redirect()->to(route('admin.recommend.index'));
     }
 }

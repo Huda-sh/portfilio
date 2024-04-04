@@ -73,7 +73,9 @@ class TechnologyController extends Controller
 
     public function destroy(string $id)
     {
-        Technology::findOrFail($id)->delete();
+        $techno = Technology::findOrFail($id);
+        File::delete($techno->image);
+        $techno->delete();
         return redirect()->to(route('admin.techno.index'));
     }
 }
