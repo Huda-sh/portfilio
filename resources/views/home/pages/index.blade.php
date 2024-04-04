@@ -194,7 +194,7 @@
                 @foreach ($projects as $item)
                     <div class="card">
                         <div class="header"
-                             style="  background-image: url('{{$item->files->where('is_preview', true)[0]->path}}'); background-size: cover;">
+                             style="  background-image: url('{{$item->files->where('is_preview', 1)[0]->path}}'); background-size: cover;">
                             <!-- <img src="./assets/home/img/profile-img.jpg" alt="" style="ob"> -->
                         </div>
                         <div class="info">
