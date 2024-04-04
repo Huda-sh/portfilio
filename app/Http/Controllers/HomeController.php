@@ -48,4 +48,10 @@ class HomeController extends Controller
         $project = Project::with('files')->findOrFail($id);
         return view('home.pages.project', compact('project'));
     }
+
+    public function contact(Request $request)
+    {
+        $receiving_email_address = 'huda.f.shakir@gmail.com';
+
+    }
 }

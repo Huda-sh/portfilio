@@ -95,7 +95,7 @@
                 <a href="{{$item->text}}" class="{{$item->platform}}"><i class="bx bxl-{{$item->platform}}"></i></a>
             @endforeach
         </div>
-        <a href="google.com" class="Download-button">
+        <a href="{{asset('/cv.pdf')}}" class="Download-button">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="16"
@@ -215,29 +215,6 @@
                                     class="fa-solid fa-display"></i>View Demo</a>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="header"
-                             style="  background-image: url('{{$item->files[0]->path}}'); background-size: cover;">
-                            <!-- <img src="./assets/home/img/profile-img.jpg" alt="" style="ob"> -->
-                        </div>
-                        <div class="info">
-                            <p class="title">{{ $item->name }}</p>
-                            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        molestiae quas vel sint commodi. </p> -->
-                            @foreach ($item->technologies as $tec)
-                                <span class="stack-badge">{{$tec->name}}</span>
-                            @endforeach
-                        </div>
-                        <div class="footer">
-                            <!-- <p class="tag">#HTML #CSS </p> -->
-                            <a href="{{ route('project', ['id'=>$item->id]) }}" target="_blank" class="card-btn"
-                               style="float: right; height: 2.35rem; color: #fff; background-color: #613bb1; padding: .375rem .75rem; border-radius: .25rem;"><i
-                                    class="fa-regular fas fa-external-link-alt"></i>View Project</a>
-                            <a href="{srcURL}" target="_blank" class="card-btn"
-                               style="float: right; color: #fff; background-color: #613bb1; padding: .375rem .75rem; border-radius: .25rem;"><i
-                                    class="fa-solid fa-display"></i>View Demo</a>
-                        </div>
-                    </div>
                 @endforeach
             </div>
         </div>
@@ -313,17 +290,7 @@
                     </div>
 
                     <div class="col-lg-8 mt-5 mt-lg-0">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <input type="text" name="name" class="form-control" id="name"
-                                           placeholder="Your Name" required/>
-                                </div>
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <input type="email" class="form-control" name="email" id="email"
-                                           placeholder="Your Email" required/>
-                                </div>
-                            </div>
+                        <form method="post" role="form" class="php-email-form">
                             <div class="form-group mt-3">
                                 <input type="text" class="form-control" name="subject" id="subject"
                                        placeholder="Subject" required/>
@@ -332,15 +299,8 @@
                                 <textarea class="form-control" name="message" rows="5" placeholder="Message"
                                           required></textarea>
                             </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">
-                                    Your message has been sent. Thank you!
-                                </div>
-                            </div>
                             <div class="text-center">
-                                <button type="submit">Send Message</button>
+                                <a id="mailto-link" href="#" >Send Message</a>
                             </div>
                         </form>
                     </div>
@@ -385,6 +345,14 @@
 
 <!-- Template Main JS File -->
 <script src="{{ asset('assets/home/js/main.js') }}"></script>
+
+<script>
+    document.getElementById('mailto-link').addEventListener('click', function (event) {
+        var subject = document.getElementById('subject').value;
+        var message = document.querySelector('textarea[name="message"]').value;
+        this.href = `mailto:huda.f.shakir@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+    });
+</script>
 </body>
 
 </html>
