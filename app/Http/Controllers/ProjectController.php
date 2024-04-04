@@ -49,7 +49,7 @@ class ProjectController extends Controller
             foreach ($files as $file) {
                 $filename = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
-                $path = $file->storeAs('Projects/' . $project->id, $filename, 'local');
+                $path = $file->storeAs('Projects/' . $project->id, $filename, 'custom');
                 ProjectFiles::create([
                     'path' => $path,
                     'is_video' => $extension == "mp4",
@@ -60,7 +60,7 @@ class ProjectController extends Controller
         }
 
         $preview = $request->file('preview')->getClientOriginalName();
-        $path = $request->file('preview')->storeAs('Projects/' . $project->id, $preview, 'local');
+        $path = $request->file('preview')->storeAs('Projects/' . $project->id, $preview, 'custom');
         ProjectFiles::create([
             'path' => $path,
             'is_video' => false,
@@ -107,7 +107,7 @@ class ProjectController extends Controller
             foreach ($files as $file) {
                 $filename = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
-                $path = $file->storeAs('Projects/' . $project->id, $filename, 'local');
+                $path = $file->storeAs('Projects/' . $project->id, $filename, 'custom');
                 ProjectFiles::create([
                     'path' => $path,
                     'is_video' => $extension == "mp4",
@@ -120,7 +120,7 @@ class ProjectController extends Controller
             $preview = $project->files->where('is_preview', true)->first;
             \Illuminate\Support\Facades\File::delete($preview->path);
             $filename = $request->file('preview')->getClientOriginalName();
-            $path = $file->storeAs('Projects/' . $project->id, $filename, 'local');
+            $path = $file->storeAs('Projects/' . $project->id, $filename, 'custom');
             ProjectFiles::create([
                 'path' => $path,
                 'is_video' => false,

@@ -59,7 +59,7 @@ class TechnologyController extends Controller
         if($request->hasFile('logo')){
             File::delete($techno->image);
             $imageName = $request->file('logo')->getClientOriginalName();
-            $path = $request->file('logo')->storeAs('Technologies', $imageName, 'local');
+            $path = $request->file('logo')->storeAs('Technologies', $imageName, 'custom');
         }
 
         $techno->update([
